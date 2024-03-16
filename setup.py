@@ -7,12 +7,12 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding='utf-8'
 
 setup(
     name='gliner-spacy',  # Your package name
-    version='0.0.1',  # Initial version
+    version='0.0.2',  # Initial version
     author='William J. B. Mattingly',  # Your name
     description='A SpaCy wrapper for the GLiNER model for enhanced Named Entity Recognition capabilities',  # Short description
     long_description=long_description,
     long_description_content_type='text/markdown',  # Ensures correct rendering on PyPI
-    url='https://github.com/yourusername/gliner-spacy',  # Your repository URL
+    url='https://github.com/theirstory/gliner-spacy',  # Your repository URL
     packages=find_packages(),
     install_requires=[
         'spacy',
@@ -21,7 +21,6 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',  
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',  # Adjust according to your chosen license
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7',
