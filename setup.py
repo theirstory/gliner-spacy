@@ -7,7 +7,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding='utf-8'
 
 setup(
     name='gliner-spacy',  # Your package name
-    version='0.0.2',  # Initial version
+    version='0.0.3',  # Initial version
     author='William J. B. Mattingly',  # Your name
     description='A SpaCy wrapper for the GLiNER model for enhanced Named Entity Recognition capabilities',  # Short description
     long_description=long_description,

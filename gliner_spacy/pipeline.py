@@ -7,7 +7,8 @@ DEFAULT_SPACY_CONFIG = {
         "gliner_model": "urchade/gliner_base",
         "chunk_size": 250,
         "labels": ["person", "organization"],
-        "style": "ent"
+        "style": "ent",
+        "threshold": .50
     }
 
 
@@ -22,12 +23,15 @@ class GlinerSpacy:
                  chunk_size: int,
                  labels: list,
                  style: str,
+                 threshold: float
                  ):
+        
         self.nlp = nlp
         self.model = GLiNER.from_pretrained("urchade/gliner_base")
         self.labels = labels
         self.chunk_size = chunk_size
         self.style = style  # Store style as an instance variable
+        self.threshold = threshold
 
     def __call__(self, doc):
         # Tokenize the text
@@ -47,9 +51,13 @@ class GlinerSpacy:
         offset = 0
         for chunk in chunks:
             if self.style == "span":
-                chunk_entities = self.model.predict_entities(chunk, self.labels, flat_ner=False)
+                chunk_entities = self.model.predict_entities(chunk, self.labels,
+                                                             flat_ner=False,
+                                                             threshold=self.threshold)
             else:
-                chunk_entities = self.model.predict_entities(chunk, self.labels, flat_ner=True)
+                chunk_entities = self.model.predict_entities(chunk, self.labels,
+                                                             flat_ner=True,
+                                                             threshold=self.threshold)
             for entity in chunk_entities:
                 all_entities.append({
                     'start': offset + entity['start'],
