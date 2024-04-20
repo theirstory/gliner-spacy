@@ -27,7 +27,7 @@ class GlinerSpacy:
                  ):
         
         self.nlp = nlp
-        self.model = GLiNER.from_pretrained("urchade/gliner_base")
+        self.model = GLiNER.from_pretrained(gliner_model)
         self.labels = labels
         self.chunk_size = chunk_size
         self.style = style  # Store style as an instance variable
