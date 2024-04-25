@@ -30,7 +30,7 @@ class GlinerSpacy:
         self.model = GLiNER.from_pretrained(gliner_model)
         self.labels = labels
         self.chunk_size = chunk_size
-        self.style = style  # Store style as an instance variable
+        self.style = style
         self.threshold = threshold
 
     def __call__(self, doc):
