@@ -4,12 +4,13 @@ from spacy.language import Language
 
 
 DEFAULT_SPACY_CONFIG = {
-        "gliner_model": "urchade/gliner_base",
-        "chunk_size": 250,
-        "labels": ["person", "organization"],
-        "style": "ent",
-        "threshold": .50
-    }
+    "gliner_model": "urchade/gliner_base",
+    "chunk_size": 250,
+    "labels": ["person", "organization"],
+    "style": "ent",
+    "threshold": .50,
+    "map_location": "cpu",
+}
 
 
 @Language.factory("gliner_spacy",
@@ -23,11 +24,15 @@ class GlinerSpacy:
                  chunk_size: int,
                  labels: list,
                  style: str,
-                 threshold: float
+                 threshold: float,
+                 map_location: str
                  ):
         
         self.nlp = nlp
-        self.model = GLiNER.from_pretrained(gliner_model)
+        self.model = GLiNER.from_pretrained(
+            gliner_model,
+            map_location=map_location
+        )
         self.labels = labels
         self.chunk_size = chunk_size
         self.style = style
