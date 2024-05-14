@@ -21,6 +21,9 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/theirstory/gliner-spacy',
     packages=find_packages(),
+    entry_points={
+      "spacy_factories": ["gliner_spacy = gliner_spacy.pipeline:GlinerSpacy"],
+    },
     install_requires=[
         'spacy>=3.0.0',
         'gliner>=0.2.0',

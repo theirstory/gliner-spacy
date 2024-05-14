@@ -21,7 +21,7 @@ pip install gliner-spacy
 ## Usage
 To use this wrapper in your SpaCy pipeline, follow these steps:
 
-1. Import SpaCy and the GLiNER SpaCy wrapper.
+1. Import SpaCy.
 2. Create a SpaCy `Language` instance.
 3. Add the `gliner_spacy` component to the SpaCy pipeline.
 4. Process text using the pipeline.
@@ -30,7 +30,6 @@ Example code:
 
 ```python
 import spacy
-from gliner_spacy.pipeline import GlinerSpacy
 
 nlp = spacy.blank("en")
 nlp.add_pipe("gliner_spacy")
@@ -52,7 +51,6 @@ Microsoft organization
 
 ```python
 import spacy
-from gliner_spacy.pipeline import GlinerSpacy
 
 custom_spacy_config = { "gliner_model": "urchade/gliner_multi",
                             "chunk_size": 250,
