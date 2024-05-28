@@ -1,7 +1,9 @@
 import spacy
 from gliner.model import GLiNER
 from spacy.language import Language
+from spacy.tokens import Span
 
+Span.set_extension("score", default=0, force=True)
 
 DEFAULT_SPACY_CONFIG = {
     "gliner_model": "urchade/gliner_base",
@@ -63,11 +65,13 @@ class GlinerSpacy:
                 chunk_entities = self.model.predict_entities(chunk, self.labels,
                                                              flat_ner=True,
                                                              threshold=self.threshold)
+             
             for entity in chunk_entities:
                 all_entities.append({
                     'start': offset + entity['start'],
                     'end': offset + entity['end'],
-                    'label': entity['label']
+                    'label': entity['label'],
+                    'score': entity['score']
                 })
             offset += len(chunk)
 
@@ -80,6 +84,7 @@ class GlinerSpacy:
         spans = []
         for ent in all_entities:
             span = doc.char_span(ent['start'], ent['end'], label=ent['label'])
+            span._.score = ent['score']
             if span:  # Only add span if it is valid
                 spans.append(span)
         if self.style == "span":
