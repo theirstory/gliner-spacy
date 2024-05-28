@@ -5,9 +5,16 @@ import os
 with open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+# Import the version
+directory = os.path.dirname(__file__)
+version_path = os.path.join(directory, 'gliner_spacy', 'version.py')
+about = {}
+with open(version_path) as f:
+    exec(f.read(), about)
+
 setup(
     name='gliner-spacy',
-    version='0.0.4', 
+    version=about['__version__'],
     author='William J. B. Mattingly',
     description='A SpaCy wrapper for the GLiNER model for enhanced Named Entity Recognition capabilities',
     long_description=long_description,
@@ -15,8 +22,8 @@ setup(
     url='https://github.com/theirstory/gliner-spacy',
     packages=find_packages(),
     install_requires=[
-        'spacy',
-        'gliner',
+        'spacy>=3.0.0',
+        'gliner>=0.2.0',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',  
@@ -28,5 +35,5 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
     ],
-    python_requires='>=3.7,<=3.10',
+    python_requires='>=3.7,<3.11',
 )
