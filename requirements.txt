@@ -1,2 +1,2 @@
-spcacy
+spacy
 gliner
