@@ -80,7 +80,7 @@ The default configuration of the wrapper can be modified according to your requi
 - `labels`: The entity labels to be recognized.
 - `style`: The style of output for the entities (either 'ent' or 'span').
 - `threshold`: The threshold of the GliNER model (controls the degree to which a hit is considered an entity)
-- `map_location`: The device on which to run the model: `cpu` or `gpu`
+- `map_location`: The device on which to run the model: `cpu` or `cuda`
 
 ## Contributing
 Contributions to this project are welcome. Please ensure that your code adheres to the project's coding standards and include tests for new features.
