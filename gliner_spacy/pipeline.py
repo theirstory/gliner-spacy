@@ -84,8 +84,8 @@ class GlinerSpacy:
         spans = []
         for ent in all_entities:
             span = doc.char_span(ent['start'], ent['end'], label=ent['label'])
-            span._.score = ent['score']
             if span:  # Only add span if it is valid
+                span._.score = ent['score']
                 spans.append(span)
         if self.style == "span":
             doc.spans["sc"] = spans
