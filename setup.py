@@ -22,7 +22,7 @@ setup(
     url='https://github.com/theirstory/gliner-spacy',
     packages=find_packages(),
     entry_points={
-      "spacy_factories": ["gliner_spacy = gliner_spacy.pipeline:GlinerSpacy"],
+      "spacy_factories": ["gliner_spacy = gliner_spacy.pipeline:GlinerSpacy", "gliner_cat = gliner_spacy.pipeline:GlinerCat"],
     },
     install_requires=[
         'spacy>=3.0.0',

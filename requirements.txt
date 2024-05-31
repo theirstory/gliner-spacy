@@ -1,2 +1,4 @@
 spacy
 gliner
+seaborn
+matplotlib

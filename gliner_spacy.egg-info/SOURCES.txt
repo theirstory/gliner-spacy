@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+gliner_spacy/__init__.py
+gliner_spacy/pipeline.py
+gliner_spacy/version.py
+gliner_spacy.egg-info/PKG-INFO
+gliner_spacy.egg-info/SOURCES.txt
+gliner_spacy.egg-info/dependency_links.txt
+gliner_spacy.egg-info/entry_points.txt
+gliner_spacy.egg-info/requires.txt
+gliner_spacy.egg-info/top_level.txt
