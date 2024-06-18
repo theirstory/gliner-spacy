@@ -3,7 +3,7 @@
 ## Introduction
 This project is a wrapper for integrating [GLiNER](https://github.com/urchade/GLiNER), a Named Entity Recognition (NER) model, with the SpaCy Natural Language Processing (NLP) library. GLiNER, which stands for Generalized Language INdependent Entity Recognition, is an advanced model for recognizing entities in text. The SpaCy wrapper enables easy integration and use of GLiNER within the SpaCy environment, enhancing NER capabilities with GLiNER's advanced features.
 
-**For GliNER to work properly, you need to use a Python version 3.7-3.10**
+**For GliNER to work properly, you need to use a Python version >=3.7,<4**
 
 ## Features
 - Integrates GLiNER with SpaCy for advanced NER tasks.
