@@ -66,9 +66,8 @@ for ent in doc.ents:
     print(ent.text, ent.label_, ent._.score)
 
 #Output
-# Bill Gates person 0.9967108964920044
-# Tom person 0.9612326622009277
-# Microsoft organization 0.9966742992401123    
+# Bill Gates people 0.9967108964920044
+# Microsoft company 0.9966742992401123    
 ```
 
 ## Configuration
