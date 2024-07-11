@@ -54,7 +54,7 @@ import spacy
 
 custom_spacy_config = { "gliner_model": "urchade/gliner_multi",
                             "chunk_size": 250,
-                            "labels": ["people","company","punctuation"],
+                            "labels": ["people","company"],
                             "style": "ent"}
 nlp = spacy.blank("en")
 nlp.add_pipe("gliner_spacy", config=custom_spacy_config)
