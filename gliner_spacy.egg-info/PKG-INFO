@@ -12,11 +12,9 @@ Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
-Requires-Python: >=3.7,<3.11
+Requires-Python: >=3.7
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: spacy>=3.0.0
-Requires-Dist: gliner>=0.2.0
 
 # GLiNER SpaCy Wrapper
 
@@ -71,11 +69,10 @@ Microsoft organization
 
 ```python
 import spacy
-# as of 0.0.8 you do not need to import the GlinerSpacy class
 
 custom_spacy_config = { "gliner_model": "urchade/gliner_multi",
                             "chunk_size": 250,
-                            "labels": ["people","company","punctuation"],
+                            "labels": ["people","company"],
                             "style": "ent"}
 nlp = spacy.blank("en")
 nlp.add_pipe("gliner_spacy", config=custom_spacy_config)
@@ -86,10 +83,9 @@ doc = nlp(text)
 for ent in doc.ents:
     print(ent.text, ent.label_, ent._.score)
 
-# Output
-# Bill Gates person 0.9967108964920044
-# Tom person 0.9612326622009277
-# Microsoft organization 0.9966742992401123    
+#Output
+# Bill Gates people 0.9967108964920044
+# Microsoft company 0.9966742992401123    
 ```
 
 ## Configuration
