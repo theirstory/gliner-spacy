@@ -27,6 +27,9 @@ setup(
     install_requires=[
         'spacy>=3.0.0',
         'gliner>=0.2.0',
+        'seaborn',
+        'matplotlib',
+        'numpy'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',  
