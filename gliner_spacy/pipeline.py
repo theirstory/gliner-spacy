@@ -21,6 +21,8 @@ DEFAULT_SPACY_CONFIG = {
     "style": "ent",
     "threshold": .50,
     "map_location": "cpu",
+    "load_onnx_model": False,
+    "onnx_model_file": "model.onnx",
 }
 
 
@@ -36,13 +38,18 @@ class GlinerSpacy:
                  labels: list,
                  style: str,
                  threshold: float,
-                 map_location: str
+                 map_location: str,
+                 load_onnx_model: bool,
+                 onnx_model_file: str,
                  ):
         
         self.nlp = nlp
         self.model = GLiNER.from_pretrained(
             gliner_model,
-            map_location=map_location
+            map_location=map_location,
+            load_onnx_model=load_onnx_model, 
+            load_tokenizer=load_onnx_model,
+            onnx_model_file=onnx_model_file
         )
         self.labels = labels
         self.chunk_size = chunk_size

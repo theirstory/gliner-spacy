@@ -70,6 +70,32 @@ for ent in doc.ents:
 # Microsoft company 0.9966742992401123    
 ```
 
+## Example with loading onnx model
+```python
+import spacy
+
+custom_spacy_config = {
+    "gliner_model": "onnx-community/gliner_base",
+    "chunk_size": 250,
+    "labels": ["people", "company"],
+    "style": "ent",
+    "load_onnx_model": True,
+    "onnx_model_file": "onnx/model.onnx",
+}
+nlp = spacy.blank("en")
+nlp.add_pipe("gliner_spacy", config=custom_spacy_config)
+
+text = "This is a text about Bill Gates and Microsoft."
+doc = nlp(text)
+
+for ent in doc.ents:
+    print(ent.text, ent.label_, ent._.score)
+
+# Output
+# Bill Gates people 0.9937531352043152
+# Microsoft company 0.994135856628418
+```
+
 ## Configuration
 The default configuration of the wrapper can be modified according to your requirements. The configurable parameters are:
 - `gliner_model`: The GLiNER model to be used.
@@ -78,6 +104,8 @@ The default configuration of the wrapper can be modified according to your requi
 - `style`: The style of output for the entities (either 'ent' or 'span').
 - `threshold`: The threshold of the GliNER model (controls the degree to which a hit is considered an entity)
 - `map_location`: The device on which to run the model: `cpu` or `cuda`
+- `load_onnx_model`: Whether the `gliner_model` specificied is an ONNX model (False by default)
+- `onnx_model_file`: The path to the onnx file in the Huggingface repo. Defaults to `model.onnx`
 
 ## Contributing
 Contributions to this project are welcome. Please ensure that your code adheres to the project's coding standards and include tests for new features.
